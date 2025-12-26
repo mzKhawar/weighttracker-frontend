@@ -22,7 +22,6 @@ const EntryView = (entry: WeightEntry) => {
     <View style={styles.entryRow}>
       <View style={styles.rowLeft}>
         <Text style={styles.date}>{entry.date}</Text>
-
         <WeightWithUnit
           weight={entry.weight}
           unit={"lbs"}
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: Theme.spacing.m,
   },
-  date: { ...Theme.typography.body, width: 60 },
+  date: { ...Theme.typography.body, width: 60, textAlign: "left" },
   weightText: { ...Theme.typography.body, textAlign: "left" },
   unitText: { ...Theme.typography.body },
   rowRight: {},

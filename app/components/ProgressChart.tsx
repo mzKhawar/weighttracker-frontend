@@ -1,6 +1,9 @@
 import { View, StyleSheet, Dimensions } from "react-native";
 import { Theme } from "@/constants/Theme";
-import { CartesianChart, Line } from "victory-native";
+import { CartesianChart, Line, useChartPressState } from "victory-native";
+import type { SharedValue } from "react-native-reanimated";
+import { Circle, useFont } from "@shopify/react-native-skia";
+import SF from "../../assets/fonts/SF-Pro-Text-Thin.otf";
 
 const DATA = Array.from({ length: 31 }, (_, i) => ({
   day: i,
@@ -9,18 +12,34 @@ const DATA = Array.from({ length: 31 }, (_, i) => ({
 
 const { height } = Dimensions.get("window");
 
+function ToolTip({ x, y }: { x: SharedValue<number>; y: SharedValue<number> }) {
+  return <Circle cx={x} cy={y} r={8} color="black" />;
+}
+
 export default function ProgressChart() {
+  const font = useFont(SF, 12);
+  const { state, isActive } = useChartPressState({ x: 0, y: { highTmp: 0 } });
   return (
     <View style={styles.container}>
-      <CartesianChart data={DATA} xKey="day" yKeys={["highTmp"]}>
+      <CartesianChart
+        data={DATA}
+        xKey="day"
+        yKeys={["highTmp"]}
+        chartPressState={state}
+        axisOptions={{ font, labelColor: Theme.colors.textMain }}
+      >
         {/* 👇 render function exposes various data, such as points. */}
         {({ points }) => (
-          // 👇 and we'll use the Line component to render a line path.
-          <Line
-            points={points.highTmp}
-            color={Theme.colors.accent}
-            strokeWidth={3}
-          />
+          <>
+            <Line
+              points={points.highTmp}
+              color={Theme.colors.accent}
+              strokeWidth={3}
+            />
+            {isActive && (
+              <ToolTip x={state.x.position} y={state.y.highTmp.position} />
+            )}
+          </>
         )}
       </CartesianChart>
     </View>

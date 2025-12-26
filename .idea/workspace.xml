@@ -48,7 +48,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "/Users/mzkhawar/code/weighttracker/weighttracker-frontend",
+    "last_opened_file_path": "/Users/mzkhawar/code/weighttracker/weighttracker-frontend/assets/fonts",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -59,6 +59,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
@@ -83,7 +86,7 @@
       <workItem from="1766597059618" duration="19000" />
       <workItem from="1766598790564" duration="141000" />
       <workItem from="1766598947792" duration="18648000" />
-      <workItem from="1766672557699" duration="20117000" />
+      <workItem from="1766672557699" duration="22717000" />
     </task>
     <servers />
   </component>
