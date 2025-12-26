@@ -13,22 +13,15 @@ export default function AddWeightButton() {
 
 const styles = StyleSheet.create({
   button: {
-    width: "100%", // full width, or use a fixed width if needed
+    width: "100%",
     backgroundColor: Theme.colors.accent,
     borderRadius: 20,
-    paddingVertical: Theme.spacing.s, // vertical padding
-    paddingHorizontal: Theme.spacing.m, // horizontal padding
-    alignItems: "center", // centers the text horizontally
-    justifyContent: "center", // centers the text vertically
-    shadowColor: "#000", // iOS shadow
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 3, // Android shadow
+    paddingVertical: Theme.spacing.s,
+    paddingHorizontal: Theme.spacing.m,
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonText: {
-    color: "#202C39",
-    fontWeight: "700",
-    fontSize: 16,
+    ...Theme.typography.label,
   },
 });

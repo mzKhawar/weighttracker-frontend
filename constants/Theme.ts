@@ -4,8 +4,8 @@ import { TextStyle } from "react-native";
 
 const COLORS = {
   // 🔵 Brand / identity
-  primary: "#1A4A8F", // App title, key headers, primary actions
-  accent: "#5499C9", // Highlights, charts, progress indicators
+  primary: "#5499C9", // App title, key headers, primary actions
+  accent: "#1A4A8F", // Highlights, charts, progress indicators
 
   // 📝 Text
   textMain: "#F8F8F8", // Main text (H2, H3, body on dark background)
@@ -16,7 +16,7 @@ const COLORS = {
   card: "#1C1F22", // Cards, panels, list items
 
   // ➖ Dividers / borders
-  divider: "#F8F8F8", // Separators, subtle lines
+  divider: "#2C2F33", // Separators, subtle lines
 
   // ✅ Status
   success: "#10B981", // Positive change, goal reached
@@ -45,7 +45,7 @@ export const Theme = {
 
     // 5. Label: Card labels like "Goal Weight", "Current Weight"
     label: {
-      fontSize: 14,
+      fontSize: 16,
       fontWeight: "500" as TextStyle["fontWeight"],
       color: "#F8F8F8",
       lineHeight: 20,

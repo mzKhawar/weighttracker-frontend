@@ -10,24 +10,24 @@ type ProgressSummaryProps = {
 
 export default function ProgressSummaryCard(props: ProgressSummaryProps) {
   return (
-    <View style={[styles.container]}>
-      <View style={styles.goalSection}>
+    <View style={styles.container}>
+      <View style={styles.section}>
         <Text style={styles.label}>Goal Weight</Text>
         <WeightWithUnit
           weight={props.goalWeight}
           unit={props.unit}
-          weightTextStyle={Theme.typography.h3}
-          unitTextStyle={Theme.typography.body}
+          weightTextStyle={styles.weightText}
+          unitTextStyle={styles.unitText}
         />
       </View>
       <View style={styles.divider} />
-      <View style={styles.progressSection}>
+      <View style={styles.section}>
         <Text style={styles.label}>Total Lost</Text>
         <WeightWithUnit
           weight={props.lostWeight}
           unit={props.unit}
-          weightTextStyle={Theme.typography.h3}
-          unitTextStyle={Theme.typography.body}
+          weightTextStyle={styles.weightText}
+          unitTextStyle={styles.unitText}
         />
       </View>
     </View>
@@ -43,12 +43,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingVertical: Theme.spacing.xs,
     paddingHorizontal: Theme.spacing.xl,
-    shadowColor: "#000", // iOS shadow
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
   },
-  goalSection: {
+  section: {
     alignItems: "center",
   },
   divider: {
@@ -59,4 +55,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   label: Theme.typography.label,
+  weightText: { ...Theme.typography.h3 },
+  unitText: { ...Theme.typography.body },
 });

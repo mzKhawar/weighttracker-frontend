@@ -10,28 +10,28 @@ type WeightEntry = {
 };
 
 const entries = [
-  { id: 1, date: "Apr 24", weight: 174.2, delta: "+0.4" },
-  { id: 2, date: "Apr 23", weight: 173.8, delta: "-0.4" },
-  { id: 3, date: "Apr 22", weight: 174.0, delta: "+0.2" },
-  { id: 4, date: "Apr 21", weight: 173.5, delta: "-0.5" },
-  { id: 5, date: "Apr 20", weight: 174.0, delta: "+0.5" },
-  { id: 6, date: "Apr 19", weight: 173.5, delta: "-0.5" },
+  { id: 1, date: "Jan 4", weight: 174.2, delta: "+0.4" },
+  { id: 2, date: "Feb 23", weight: 173.8, delta: "-0.4" },
+  { id: 3, date: "Mar 22", weight: 174.0, delta: "+0.2" },
+  { id: 4, date: "Dec 21", weight: 173.5, delta: "-0.5" },
+  { id: 5, date: "Jun 20", weight: 174.0, delta: "+0.5" },
 ];
 
 const EntryView = (entry: WeightEntry) => {
   return (
     <View style={styles.entryRow}>
       <View style={styles.rowLeft}>
-        <Text style={Theme.typography.body}>{entry.date}</Text>
+        <Text style={styles.date}>{entry.date}</Text>
+
         <WeightWithUnit
           weight={entry.weight}
           unit={"lbs"}
-          weightTextStyle={Theme.typography.body}
-          unitTextStyle={Theme.typography.body}
+          weightTextStyle={styles.weightText}
+          unitTextStyle={styles.unitText}
         />
       </View>
       <View style={styles.rowRight}>
-        <Text style={Theme.typography.body}>{entry.delta}</Text>
+        <Text style={styles.delta}>{entry.delta}</Text>
       </View>
     </View>
   );
@@ -40,14 +40,7 @@ const EntryView = (entry: WeightEntry) => {
 export default function RecentEntriesList() {
   return (
     <View style={styles.container}>
-      <Text
-        style={[
-          Theme.typography.h2,
-          { alignSelf: "flex-start", marginLeft: Theme.spacing.m },
-        ]}
-      >
-        Recent Entries
-      </Text>
+      <Text style={styles.heading}>Recent Entries</Text>
       <View style={styles.card}>
         {entries.map((entry) => (
           <EntryView
@@ -64,19 +57,20 @@ export default function RecentEntriesList() {
 }
 
 const styles = StyleSheet.create({
-  container: { width: "100%" },
+  container: { flex: 1, width: "100%" },
+  heading: {
+    ...Theme.typography.h2,
+    alignSelf: "flex-start",
+    marginLeft: Theme.spacing.m,
+  },
   card: {
     backgroundColor: Theme.colors.card,
     paddingVertical: Theme.spacing.xs,
     paddingHorizontal: Theme.spacing.m,
     borderRadius: 12,
-    shadowColor: "#000", // iOS shadow
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
   },
   entryRow: {
-    flexDirection: "row", // y not taking 100%
+    flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
     alignItems: "center",
@@ -86,7 +80,12 @@ const styles = StyleSheet.create({
   },
   rowLeft: {
     flexDirection: "row",
+    alignItems: "center",
     gap: Theme.spacing.m,
   },
+  date: { ...Theme.typography.body, width: 60 },
+  weightText: { ...Theme.typography.body, textAlign: "left" },
+  unitText: { ...Theme.typography.body },
   rowRight: {},
+  delta: { ...Theme.typography.body },
 });

@@ -25,10 +25,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   weightText: {
-    fontSize: 48,
+    fontSize: 60,
     fontWeight: "800" as TextStyle["fontWeight"],
     color: Theme.colors.primary,
-    lineHeight: 56,
   },
   unitText: {
     fontSize: 18,

@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: "space-evenly",
+    justifyContent: "flex-start",
+    alignItems: "stretch",
     backgroundColor: Theme.colors.background,
     paddingHorizontal: Theme.spacing.m,
     paddingVertical: Theme.spacing.m,
