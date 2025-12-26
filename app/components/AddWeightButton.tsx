@@ -1,9 +1,14 @@
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
 import { Theme } from "@/constants/Theme";
+import React from "react";
 
-export default function AddWeightButton() {
+type AddWeightModalProps = {
+  onPress: () => void;
+};
+
+export default function AddWeightButton({ onPress }: AddWeightModalProps) {
   return (
-    <TouchableOpacity onPress={() => {}} activeOpacity={0.7}>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
       <View style={styles.button}>
         <Text style={styles.buttonText}>Add Weight</Text>
       </View>

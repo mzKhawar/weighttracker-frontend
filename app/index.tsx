@@ -7,17 +7,34 @@ import ProgressChart from "@/app/components/ProgressChart";
 import RecentEntriesList from "@/app/components/RecentEntriesList";
 import AddWeightButton from "@/app/components/AddWeightButton";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
+import AddWeightModal from "@/app/components/AddWeightModal";
 
 export default function Index() {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleAddWeightPress = () => {
+    setModalVisible(true);
+  };
+
+  const handleSaveWeight = () => {
+    setModalVisible(false);
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <StatusBar style="light" />
         <WeightHero currentWeight={172.7} unit={"lbs"} />
-        <ProgressSummaryCard goalWeight={160} lostWeight={15.2} unit={"lbs"} />
+        <ProgressSummaryCard goalWeight={160} progress={-15.2} unit={"lbs"} />
         <ProgressChart />
         <RecentEntriesList />
-        <AddWeightButton />
+        <AddWeightButton onPress={handleAddWeightPress} />
+        <AddWeightModal
+          visible={modalVisible}
+          onClose={() => setModalVisible(false)}
+          onSave={handleSaveWeight}
+        />
       </View>
     </SafeAreaView>
   );

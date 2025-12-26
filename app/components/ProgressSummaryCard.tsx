@@ -4,7 +4,7 @@ import { Theme } from "@/constants/Theme";
 
 type ProgressSummaryProps = {
   goalWeight: number;
-  lostWeight: number;
+  progress: number;
   unit: string;
 };
 
@@ -22,9 +22,9 @@ export default function ProgressSummaryCard(props: ProgressSummaryProps) {
       </View>
       <View style={styles.divider} />
       <View style={styles.section}>
-        <Text style={styles.label}>Total Lost</Text>
+        <Text style={styles.label}>Progress</Text>
         <WeightWithUnit
-          weight={props.lostWeight}
+          weight={props.progress}
           unit={props.unit}
           weightTextStyle={styles.weightText}
           unitTextStyle={styles.unitText}
@@ -40,12 +40,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     borderRadius: 12,
-    justifyContent: "space-between",
     paddingVertical: Theme.spacing.xs,
-    paddingHorizontal: Theme.spacing.xl,
   },
   section: {
+    flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
   divider: {
     width: 1,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   progressSection: {
     alignItems: "center",
   },
-  label: Theme.typography.label,
+  label: { ...Theme.typography.label },
   weightText: { ...Theme.typography.h3 },
   unitText: { ...Theme.typography.body },
 });
